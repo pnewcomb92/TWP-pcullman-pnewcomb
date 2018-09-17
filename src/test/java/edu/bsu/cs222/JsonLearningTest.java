@@ -28,7 +28,49 @@ public class JsonLearningTest
         {
             JsonObject entryObject = entry.getValue().getAsJsonObject();
             array = entryObject.getAsJsonArray("revisions");
+            JsonArray users = array;
         }
         System.out.println(array);
+
+    }
+    @Test
+    public void printOutArrayObjects()
+    {
+        JsonParser parser = new JsonParser();
+        InputStream inputStream;
+        inputStream = getClass().getClassLoader().getResourceAsStream("sample.json");
+        Reader reader = new InputStreamReader(inputStream);
+        JsonElement rootElement = parser.parse(reader);
+        JsonObject rootObject = rootElement.getAsJsonObject();
+        JsonObject pages = rootObject.getAsJsonObject("query").getAsJsonObject("pages");
+        JsonArray array = null;
+        for (Map.Entry<String,JsonElement> entry : pages.entrySet())
+        {
+            JsonObject entryObject = entry.getValue().getAsJsonObject();
+            array = entryObject.getAsJsonArray("revisions");
+            JsonArray users = array;
+        }
+        for (int i = 0, array[i]) {
+            System.out.println(array[i]);
+            array[i++];
+    }
+    @Test
+    public void testConnectionTest(){
+            import java.net.*;
+            import java.io.*;
+
+        public class URLConnectionReader {
+            public static void main(String[] args) throws Exception {
+                URL wikipedia = new URL("http://www.wikipedia.com/");
+                URLConnection yc = oracle.openConnection();
+                BufferedReader in = new BufferedReader(new InputStreamReader(
+                        yc.getInputStream()));
+                String inputLine;
+                while ((inputLine = in.readLine()) != null)
+                    System.out.println(inputLine);
+                in.close();
+            }
+        }
+    }
     }
 }
